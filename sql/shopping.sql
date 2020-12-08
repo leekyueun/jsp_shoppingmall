@@ -37,18 +37,25 @@ insert into CATEGORY values ( 2, '가구');
 insert into CATEGORY values ( 3, '식품');
 insert into CATEGORY values ( 4, '의류');
 
-insert into SALE values ( 1, 1, '20200101', 1000000, 1);
-insert into SALE values ( 2, 2, '20200101', 1600000, 2);
-insert into SALE values ( 3, 1, '20200101', 2000000, 2);
-insert into SALE values ( 4, 4, '20200102', 140000, 3);
-insert into SALE values ( 5, 5, '20200104', 21000, 1);
-insert into SALE values ( 6, 6, '20200106', 320000, 2);
-insert into SALE values ( 7, 7, '20200111', 360000, 4);
-insert into SALE values ( 8, 8, '20200115', 60000, 5);
-insert into SALE values ( 9, 9, '20200117', 58000, 1);
-insert into SALE values ( 10, 9, '20202120', 580000, 10);
-insert into SALE values ( 11, 2, '20200121', 1600000, 2);
-insert into SALE values ( 12, 1, '20200122', 1000000, 1);
-insert into SALE values ( 13, 4, '20200124', 80000, 1);
-insert into SALE values ( 14, 5, '20200126', 210000, 1);
-insert into SALE values ( 15, 6, '20200129', 160000, 1);
+insert into SALE values (1, 1, '20200101', 1000000, 1);
+insert into SALE values (2, 2, '20200101', 1600000, 2);
+insert into SALE values (3, 1, '20200101', 2000000, 2);
+insert into SALE values (4, 4, '20200102', 140000, 3);
+insert into SALE values (5, 5, '20200104', 21000, 1);
+insert into SALE values (6, 6, '20200106', 320000, 2);
+insert into SALE values (7, 7, '20200111', 360000, 4);
+insert into SALE values (8, 8, '20200115', 60000, 5);
+insert into SALE values (9, 9, '20200117', 58000, 1);
+insert into SALE values (10, 9, '20200120', 580000, 10);
+insert into SALE values (11, 2, '20200121', 1600000, 2);
+insert into SALE values (12, 1, '20200122', 1000000, 1);
+insert into SALE values (13, 4, '20200124', 80000, 1);
+insert into SALE values (14, 5, '20200126', 210000, 1);
+insert into SALE values (15, 6, '20200129', 160000, 1);
+
+SELECT
+    SALE.SALE_ID, PRODUCT.NAME, SALE.PURCHASE_DATE, SALE.SALE_PRICE, SALE.AMOUNT
+FROM
+    SALE, PRODUCT
+WHERE
+    SALE.PRODUCT_ID = PRODUCT.PRODUCT_ID
