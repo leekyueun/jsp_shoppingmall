@@ -13,7 +13,7 @@
 		Statement stmt = conn.createStatement();
 %>
 
-<form action="action.sale_insert.jsp" method="post" name="action_form">
+<form action="action/sale_insert.jsp" method="post" name="action_form">
 	<table border="1">
 		<tr>
 			<td>판매한 상품</td>
@@ -31,8 +31,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>수량</td>
+			<td><input type="number" name="amount"></td>
+		</tr>
+		<tr>
 			<td>판매 날짜</td>
-			<td></td>
+			<td><input type="date" name="purchase_date"></td>
 		</tr>
 		<tr>
 			<td colspan="2">
