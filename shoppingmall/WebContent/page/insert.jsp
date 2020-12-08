@@ -1,12 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page import="java.sql.*" %>
 
-</body>
-</html>
+<h3>판매 등록</h3>
+
+<%
+	try {
+		Class.forName("oracle.jdbc.OracleDriver");
+		Connection conn = DriverManager.getConnection
+		("jdbc:oracle:thin:@//localhost:1521/xe", "system", "1234");
+		
+		Statement stmt = conn.createStatement();
+%>
+
+<form action="action.sale_insert.jsp" method="post" name="action_form">
+	<table border="1">
+		<tr>
+			<td>판매한 상품</td>
+			<td>
+				<select name="product_id">
+					<%
+						String query = "SELECT PRODUCT_ID, NAME FROM PRODUCT ";
+						ResultSet rs = stmt.executeQuery(query);
+						
+						while (rs.next()) {
+							%> <option value="<%= rs.getInt(1) %>"><%= rs.getString(2) %> <%
+						}
+					%>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>판매 날짜</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="등록하기">
+				<input type="button" value="다시쓰기" onclick="reset_form()">
+			</td>
+		</tr>
+	</table>
+</form>
+
+<script>
+	function reset_form() {
+		document.action_form.reset();
+	}
+</script>
+
+<%
+		stmt.close();
+		conn.close();
+	}
+	catch (Exception e) {
+		e.printStackTrace();
+	}
+%>
