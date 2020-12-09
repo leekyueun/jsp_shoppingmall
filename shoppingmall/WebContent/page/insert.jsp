@@ -39,6 +39,7 @@
 			<td>판매 날짜</td>
 			<td><input type="date" name="purchase_date"></td>
 		</tr>
+			
 		<tr>
 			<td colspan="2">
 				<input type="button" value="등록하기" onclick="submit_form()">
